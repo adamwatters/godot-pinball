@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://do84g1t6y24al"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_51xtq"]
+left_to_right = 1.0
+size = Vector3(1, 1, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pdc6p"]
+points = PackedVector3Array(0.477155, 0.477152, 0.25, -0.507868, -0.507837, -0.257937, -0.507868, -0.507837, 0.265873, 0.477155, -0.477152, 0.25, 0.476118, 0.507937, -0.257937, 0.492546, -0.492544, -0.25, -0.507868, -0.476116, 0.265873, 0.476118, 0.507937, 0.265873, -0.507868, -0.476116, -0.257937, 0.492546, 0.492544, -0.25)
+
+[node name="corner" type="StaticBody3D"]
+transform = Transform3D(-0.00221653, 6.98346e-16, 0.999998, 7.74002e-19, 1, -6.98346e-16, -0.999997, -7.73923e-19, -0.00221657, -4.00581, 0.804755, -0.769187)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.1971e-08, 1, -4.37114e-08, -8.90811e-23, -4.37114e-08, -1, -1, -2.92255e-08, 2.00324e-16, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("PrismMesh_51xtq")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.1971e-08, 1, -4.37114e-08, -8.90811e-23, -4.37114e-08, -1, -1, -2.92255e-08, 2.00324e-16, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+shape = SubResource("ConvexPolygonShape3D_pdc6p")

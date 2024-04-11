@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ija1uwlk7ah"]
+
+[ext_resource type="Script" path="res://game/prefabs/flipper.gd" id="1_hvdh7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tmy8o"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y7m2d"]
+size = Vector3(2, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n0qww"]
+size = Vector3(2, 0.5, 0.5)
+
+[node name="fliipper-joint" type="HingeJoint3D"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, 1.38509e-07, -1, 2.22272e-30, 1, 7.63142e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+node_a = NodePath("..")
+node_b = NodePath("flipper")
+angular_limit/enable = true
+angular_limit/upper = 0.785398
+angular_limit/lower = -0.785398
+script = ExtResource("1_hvdh7")
+
+[node name="flipper" type="RigidBody3D" parent="."]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 7.73923e-10, -3.48787e-16, 4.09419e-09, 1, -0.75, 2.08165e-12, -0.25)
+input_ray_pickable = false
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_tmy8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flipper"]
+shape = SubResource("BoxShape3D_y7m2d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="flipper"]
+transform = Transform3D(1, 0, 0, 0, 1, -6.88209e-08, 0, -4.32573e-08, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_n0qww")

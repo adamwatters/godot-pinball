@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vts2xl0t0xub"]
+
+[ext_resource type="PackedScene" uid="uid://biunegs8tkvn0" path="res://addons/godot_vision/VisionVolumeCamera.tscn" id="1_3lu4e"]
+[ext_resource type="PackedScene" uid="uid://cqut2b0xq40h2" path="res://game/prefabs/board.tscn" id="6_f43wy"]
+[ext_resource type="PackedScene" uid="uid://bmvc3xd4bk2aa" path="res://game/prefabs/ball.tscn" id="6_p1i1l"]
+
+[node name="Example GodotVision Scene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0050149, -0.00658166, 0.00135791)
+
+[node name="VisionVolumeCamera" parent="." instance=ExtResource("1_3lu4e")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.688506, 0.382906, -0.615907, -4.30062e-16, 0.849257, 0.527979, 0.72523, -0.363517, 0.584719, 0, 7.13201, 0)
+
+[node name="board" parent="." instance=ExtResource("6_f43wy")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 4.00039e-16, 0.98715, -0.159795, -2.88571e-16, 0.159795, 0.98715, 0, -0.126164, -0.23618)
+
+[node name="ball" parent="." instance=ExtResource("6_p1i1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11867, 0.639983, 1.73752)

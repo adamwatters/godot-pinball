@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://uatxtlgdvkuc"]
+
+[ext_resource type="Script" path="res://game/prefabs/launcher.gd" id="1_bwlqh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lyrd"]
+size = Vector3(0.5, 0.5, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cphw0"]
+top_radius = 0.25
+bottom_radius = 0.25
+
+[node name="launcher" type="SliderJoint3D"]
+transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+node_a = NodePath("plunger")
+node_b = NodePath("..")
+
+[node name="plunger" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+script = ExtResource("1_bwlqh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plunger"]
+shape = SubResource("BoxShape3D_5lyrd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plunger"]
+transform = Transform3D(1, -6.66424e-31, 2.91303e-38, 0, -4.37114e-08, -1, 6.66424e-31, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_cphw0")
+
+[connection signal="input_event" from="plunger" to="plunger" method="_on_input_event"]
