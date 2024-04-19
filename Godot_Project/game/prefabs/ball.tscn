@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmvc3xd4bk2aa"]
+[gd_scene load_steps=9 format=3 uid="uid://bmvc3xd4bk2aa"]
 
 [ext_resource type="Texture2D" uid="uid://egrrh4pa5jt3" path="res://game/textures/metal_color.jpg" id="1_2yjyl"]
 [ext_resource type="Texture2D" uid="uid://bpi0jfxbgqjrv" path="res://game/textures/metal_normal.png" id="2_dtmeo"]
 [ext_resource type="Texture2D" uid="uid://ca1gh48ccb8wk" path="res://game/textures/metal_roughness.jpg" id="3_snhu2"]
+[ext_resource type="PackedScene" uid="uid://cwrt6mtkelk6w" path="res://game/models/soccer_ball/scene.gltf" id="4_45ngi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3up28"]
 friction = 0.1
@@ -35,4 +36,8 @@ physics_material_override = SubResource("PhysicsMaterial_3up28")
 shape = SubResource("SphereShape3D_n407b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_eqif7")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_45ngi")]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0.005, 2.08165e-12, 2.08165e-12)
